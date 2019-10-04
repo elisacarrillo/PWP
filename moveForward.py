@@ -36,7 +36,6 @@ p.start(54)
 p2.start(45)
 
 class RobotMotion:
-    time = 0
     def __init__(self, time):
         self.time = time
     def forward(self):
