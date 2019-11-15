@@ -1,32 +1,33 @@
 from robotMotion import RobotMotion
 from flask import Flask
+#from communication import x
 app = Flask(__name__)
 AA3000 = RobotMotion()
 VERSION = 1.0
 
-@app.route('/fwd')
-def front():
+@app.route('/fwd/<int:x>')
+def front(x):
 
-    AA3000.forward(1)
+    AA3000.forward(x)
     return "DONE\n"
     GPIO.cleanup()
 
-@app.route('/bwd')
-def back():
+@app.route('/bwd/<int:x>')
+def back(x):
 
-    AA3000.backwards(1)
+    AA3000.backwards(x)
     return "DONE\n"
     GPIO.cleanup()
-@app.route('/lt')
-def left():
+@app.route('/lt/<int:x>')
+def left(x):
 
-    AA3000.right(1)
+    AA3000.right(x)
     return "DONE\n"
     GPIO.cleanup()
-@app.route('/rt')
-def right():
+@app.route('/rt/<int:x>')
+def right(x):
 
-    AA3000.backright(1)
+    AA3000.backright(x)
     return "DONE\n"
     GPIO.cleanup()
 if __name__ == "__main__":
