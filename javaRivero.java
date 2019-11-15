@@ -34,11 +34,17 @@ public class Java11HttpClientExample {
         // Using Console to input data from user
         String name = System.console().readLine();
 
-        if (name.equals("f")){
+        if (name.charAt(0) == 'f'){
           System.out.println(name);
+          String bam = "" + name.charAt(1);
+          System.out.println(bam);
+          //char f = name.charAt(1);
+          //int kay = f - '0';
+
+          //int bam = Integer.parseInt(name.charAt(1));
           HttpRequest request = HttpRequest.newBuilder()
                     .GET()
-                    .uri(URI.create("HTTP://192.168.1.108:8080/fwd"))
+                    .uri(URI.create("HTTP://192.168.1.108:8080/fwd/" + bam))
                     .setHeader("User-Agent", "Java 11 HttpClient Bot")
                     .build();
 
@@ -51,11 +57,13 @@ public class Java11HttpClientExample {
           // print response body
           System.out.println(response.body());
         }
-        if (name.equals("b")){
+        if (name.charAt(0) == 'b'){
           System.out.println(name);
+          String bam = "" + name.charAt(1);
+          System.out.println(bam);
           HttpRequest request = HttpRequest.newBuilder()
                     .GET()
-                    .uri(URI.create("HTTP://192.168.1.108:8080/bwd"))
+                    .uri(URI.create("HTTP://192.168.1.108:8080/bwd/"+bam))
                     .setHeader("User-Agent", "Java 11 HttpClient Bot")
                     .build();
 
@@ -68,11 +76,21 @@ public class Java11HttpClientExample {
           // print response body
           System.out.println(response.body());
         }
-        if (name.equals("l")){
+        if (name.charAt(0) == 'l'){
           System.out.println(name);
+          //String bam = "" + name.charAt(1);
+          //System.out.println(bam);
+          //String f = name.charAt(1) + name.charAt(2);
+          String kate = name.substring(1);
+          int kay = Integer.parseInt(kate);
+          int mam = 0;
+          //int final = 0;
+          mam =  kay /180;
+          String final1 = Integer.toString(mam);
+
           HttpRequest request = HttpRequest.newBuilder()
                     .GET()
-                    .uri(URI.create("HTTP://192.168.1.108:8080/lt"))
+                    .uri(URI.create("HTTP://192.168.1.108:8080/lt/"+final1))
                     .setHeader("User-Agent", "Java 11 HttpClient Bot")
                     .build();
 
@@ -85,11 +103,17 @@ public class Java11HttpClientExample {
           // print response body
           System.out.println(response.body());
         }
-        if (name.equals("r")){
+        if (name.charAt(0) == 'r'){
           System.out.println(name);
+          String kate = name.substring(1);
+          int kay = Integer.parseInt(kate);
+          int mam = 0;
+          //int final = 0;
+          mam =  kay /180;
+          String final1 = Integer.toString(mam);
           HttpRequest request = HttpRequest.newBuilder()
                     .GET()
-                    .uri(URI.create("HTTP://192.168.1.108:8080/rt"))
+                    .uri(URI.create("HTTP://192.168.1.108:8080/rt/" + final1))
                     .setHeader("User-Agent", "Java 11 HttpClient Bot")
                     .build();
 
