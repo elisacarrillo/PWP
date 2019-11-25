@@ -10,25 +10,25 @@ def front(x):
 
     AA3000.forward(x)
     return "DONE\n"
-    
+    GPIO.cleanup()
 
 @app.route('/bwd/<int:x>')
 def back(x):
 
     AA3000.backwards(x)
     return "DONE\n"
-    
+    GPIO.cleanup()
 @app.route('/lt/<int:x>')
 def left(x):
 
     AA3000.right(x)
     return "DONE\n"
-    
+    GPIO.cleanup()
 @app.route('/rt/<int:x>')
 def right(x):
 
     AA3000.backright(x)
     return "DONE\n"
-    
+    GPIO.cleanup()
 if __name__ == "__main__":
     app.run(debug=True, port = 8080, host= '192.168.1.108')
