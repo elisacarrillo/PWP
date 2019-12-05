@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import messagebox
+from flaskCode import *
 
 window = Tk()
 window.geometry('600x300')
@@ -11,15 +12,19 @@ lbl.place(x=125, y=50)
 
 
 def clickedfwd():
+    AA3000.front(1)
     messagebox.showinfo("Status", "Working... Moving Forward")
 
 def clickedbwd():
+    AA3000.back(1)
     messagebox.showinfo("Status", "Working... Moving Backward")
 
 def clickedlt():
+    AA3000.left(1)
     messagebox.showinfo("Status", "Working... Moving Left")
 
 def clickedrt():
+    AA3000.right(1)
     messagebox.showinfo("Status", "Working... Moving Right")
 
 def clickedser():

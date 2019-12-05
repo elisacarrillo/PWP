@@ -1,5 +1,4 @@
-//UNUSED, OLD VERSION
-
+//IDKIDKIDK
 class Communication
 {
   public static void main(String[] args)
