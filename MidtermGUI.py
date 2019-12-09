@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
-from flaskCode import *
+import requests
+#from flaskCode import *
 
 window = Tk()
 window.geometry('600x300')
@@ -11,24 +12,42 @@ lbl = Label(window, text="Welcome to the PWP Midterm GUI", font=("Arial Bold", 1
 lbl.place(x=125, y=50)
 
 
+
+
 def clickedfwd():
-    AA3000.front(1)
-    messagebox.showinfo("Status", "Working... Moving Forward")
+    #AA3000.front(1)
+    URL = "http://192.168.1.108:8080/fwd/1"
+    r = requests.get(url=URL)
+    messagebox.showinfo("Status", "Successfully Moved Forward")
 
 def clickedbwd():
-    AA3000.back(1)
-    messagebox.showinfo("Status", "Working... Moving Backward")
+    #AA3000.back(1)
+    URL = "http://192.168.1.108:8080/bwd/1"
+    r = requests.get(url=URL)
+    messagebox.showinfo("Status", "Successfully Moved Back")
 
 def clickedlt():
-    AA3000.left(1)
-    messagebox.showinfo("Status", "Working... Moving Left")
+    #AA3000.left(1)
+    URL = "http://192.168.1.108:8080/lt/1"
+    r = requests.get(url=URL)
+    messagebox.showinfo("Status", "Successfully Moved Left")
 
 def clickedrt():
-    AA3000.right(1)
-    messagebox.showinfo("Status", "Working... Moving Right")
+    #AA3000.right(1)
+    URL = "http://192.168.1.108:8080/rt/1"
+    r = requests.get(url=URL)
+    messagebox.showinfo("Status", "Successfully Moved Right")
 
 def clickedser():
-    messagebox.showinfo("Status", "Working... Moving Through the Series")
+    URL = "http://192.168.1.108:8080/fwd/1"
+    r = requests.get(url=URL)
+    URL = "http://192.168.1.108:8080/rt/1"
+    r = requests.get(url=URL)
+    URL = "http://192.168.1.108:8080/fwd/1"
+    r = requests.get(url=URL)
+    URL = "http://192.168.1.108:8080/lt/1"
+    r = requests.get(url=URL)
+    messagebox.showinfo("Status", "Successfully Moved Through the Series")
 
 
 fwdbtn = Button(window, text="Forward", bg="Pink", fg="white", command=clickedfwd, height=5, width=10)
