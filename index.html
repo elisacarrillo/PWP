@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+<title>PWP GUI</title>
+   
+
+  </head>
+  <body>
+
+
+    <script>
+      function Right() {
+        document.getElementById("log").innerHTML += "Moving Right <br>";
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {
+      		document.getElementById("log").innerHTML += "Done <br>";
+    	}
+	xhttp.open("GET", "http://192.168.1.108:8080/rt/1", true);
+	xhttp.send()
+	
+     
+      }
+
+      function Left() {
+        document.getElementById("log").innerHTML += "Moving Left <br>";
+     
+      }
+
+      function Forward() {
+        document.getElementById("log").innerHTML += "Moving Forward <br>";
+     
+      }
+
+      function Backward() {
+        document.getElementById("log").innerHTML += "Moving Backward <br>";
+     
+      }
+
+      function Diagonal() {
+        document.getElementById("log").innerHTML += "Moving Diagonal <br>";
+     
+      }
+
+      function Reset() {
+        document.getElementById("log").innerHTML = " <br>";
+     
+      }
+
+
+
+    </script>
+    <iframe src="http://192.168.1.108:8000" div style = "position:relative; left:1000px; top:100px; style="height=720px; width=1280px;"></iframe>
+
+    <form action="">
+
+         <input type="button" value="&#x2192" div style = "position:relative; left:460px; top:-450px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;" onclick="Right()"></button"/>
+
+         <input type="button" value="&#x2190" div style = "position:relative; left:150px; top:-450px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;"onclick="Left(); window.open('http://192.168.1.108:8080/lt/1','_blank')"></button"/>
+
+         <input type="button" value="&#x2191" div style = "position:relative; left:150px; top:-520px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;"onclick="Forward(); window.open('http://192.168.1.108:8080/fwd/1','_blank')"></button"/>
+
+         <input type="button" value="&#x2193" div style = "position:relative; left:45px; top:-380px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;" onclick="Backward(); window.open('http://192.168.1.108:8080/bwd/1','_blank')"></button"/>
+
+<input type="button" value="&#x2bc3" div style = "position:relative; left:-62px; top:-450px; height:100%;width:100px; background-color: #FE0000; font-size: 50px;" onclick="Reset()"/>
+
+   <p id="log"></p>
+
+    </form>
+
+<script type="text/javascript">
+        function zoom() {
+            document.body.style.zoom = "50%"
+        }
+</script>
+
+<body onload="zoom()">
+
+</body>
+</html>
