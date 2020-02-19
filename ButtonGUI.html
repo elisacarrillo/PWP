@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+<title>PWP GUI</title>
+
+
+  </head>
+  <body>
+
+
+    <script>
+      var img = document.createElement("img");
+      var xhttp = new XMLHttpRequest();
+      function Right() {
+
+        document.getElementById("log").innerHTML += "Moving Right <br>";
+        //document.body.removeChild(img);
+
+        xhttp.open("GET","http://192.168.1.117:8080/rt/1", true );
+        xhttp.send();
+
+        img.src = "https://cdn0.iconfinder.com/data/icons/weather-forecast-meteorology/256/weather-nature-forecast-meteorology_153-512.png";
+        img.height =300;
+        img.width = 300;
+        document.body.appendChild(img);
+
+        //document.getElementById("log").innerHTML.appendChild(img);
+
+      }
+
+      function Left() {
+
+        document.getElementById("log").innerHTML += "Moving Left <br>";
+        xhttp.open("GET","http://192.168.1.117:8080/lt/1", true );
+        xhttp.send();
+        //var img = document.createElement("img");
+        img.src = "https://cdn0.iconfinder.com/data/icons/weather-forecast-meteorology/256/weather-nature-forecast-meteorology_150-512.png";
+        img.height =300;
+        img.width = 300;
+        document.body.appendChild(img);
+
+      }
+
+      function Forward() {
+        document.getElementById("log").innerHTML += "Moving Forward <br>";
+        xhttp.open("GET","http://192.168.1.117:8080/fwd/1", true );
+        xhttp.send();
+        //var img = document.createElement("img");
+        img.src = "https://cdn0.iconfinder.com/data/icons/weather-forecast-meteorology/256/weather-nature-forecast-meteorology_149-512.png";
+        img.height =300;
+        img.width = 300;
+        document.body.appendChild(img);
+
+      }
+
+      function Backward() {
+        document.getElementById("log").innerHTML += "Moving Backward <br>";
+        xhttp.open("GET","http://192.168.1.117:8080/bwd/1", true );
+        xhttp.send();
+        //var img = document.createElement("img");
+        img.src = "https://cdn0.iconfinder.com/data/icons/weather-forecast-meteorology/256/weather-nature-forecast-meteorology_152-512.png";
+        img.height =300;
+        img.width = 300;
+        document.body.appendChild(img);
+
+
+      }
+
+      function Diagonal() {
+        document.getElementById("log").innerHTML += "Moving Diagonal <br>";
+
+      }
+
+      function Reset() {
+        document.getElementById("log").innerHTML = " <br>";
+
+      }
+
+
+
+    </script>
+    <iframe src="http://192.168.1.117:8000" alt="Camera Feed" div style = "position:relative; left:1000px; top:100px; style="height=720px; width=1280px;"></iframe>
+
+    <form action="">
+
+         <input type="button" value="&#x2192" div style = "position:relative; left:460px; top:-450px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;" onclick="Right()"></button"/>
+         <!--<input type="button" value="&#x2192" div style = "position:relative; left:460px; top:-450px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;" onclick="Right(); window.open('http://192.168.1.117:8080/rt/1','_blank')"></button"/>-->
+
+
+
+         <input type="button" value="&#x2190" div style = "position:relative; left:150px; top:-450px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;", onclick="Left()"></button"/>
+
+         <input type="button" value="&#x2191" div style = "position:relative; left:150px; top:-520px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;", onclick="Forward()"></button"/>
+
+         <input type="button" value="&#x2193" div style = "position:relative; left:45px; top:-380px; height:100%;width:100px; background-color: #ffc0cb; font-size: 50px;", onclick="Backward()"></button"/>
+
+<input type="button" value="&#x2bc3" div style = "position:relative; left:-62px; top:-450px; height:100%;width:100px; background-color: #FE0000; font-size: 50px;" onclick="Reset()"/>
+
+   <p id="log"></p>
+
+    </form>
+
+<script type="text/javascript">
+        function zoom() {
+            document.body.style.zoom = "50%"
+        }
+</script>
+
+<body onload="zoom()">
+
+</body>
+</html>

@@ -12,7 +12,7 @@ VERSION = 1.0
 @app.route('/api/')
 def gui():
     #return "instruction recieved"
-    return app.send_static_file('index.html')
+    return app.send_static_file('ButtonGUI.html')
 
 
 @app.route('/fwd/<int:x>')
@@ -42,4 +42,5 @@ def right(x):
     GPIO.cleanup()
 
 if __name__ == "__main__":
-    app.run(debug=True, port = 8080, host= '192.168.1.108')
+    app.run(debug=True, port = 8080, host= '192.168.1.117')
+
