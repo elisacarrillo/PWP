@@ -28,7 +28,7 @@ while vid.isOpened():
 
     cv2.imshow('frame', gray)
     # cv2.waitKey(0)
-    if cv2.waitKey(25) & 0xFF == ord('q'):
+    if cv2.waitKey(17) & 0xFF == ord('q'):
         break
 vid.release()
 cv2.destroyAllWindows()
