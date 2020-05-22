@@ -42,13 +42,18 @@ manp = 0
 mank = 1
 manp2 = 2
 pank = 3
-while h>0:
+while h>500-40:
     thirdline = []
+
+    # outlining triangles because honestly what the fuck is up
+    cv2.line(img, (pointAx - 187, ypoop1), (pointAx + 187, ypoop2), (0, 255, 0), 2)
+    cv2.line(img, (pointAx - 187, ypoop1), (pointAx, pointAy - 160), (0, 255, 0), 2)
+    cv2.line(img, (pointAx + 187, ypoop2), (pointAx, pointAy - 160), (0, 255, 0), 2)
 
     # t = np.array([[(start, h), (end, h), (middle, h-40)]])
     print( "ax " + str(pointAx))
     print( "ay " + str(pointBx))
-    t = np.array([[(pointAx-187,ypoop1), (pointAx + 187, ypoop2), (pointAx, pointAy-50)]])
+    t = np.array([[(pointAx-187,ypoop1), (pointAx + 187, ypoop2), (pointAx, pointAy-160)]])
     # cv2.fillPoly(img, t, 255)
     # period = np.array([[()]])
     mask = np.zeros_like(edges)
@@ -64,7 +69,7 @@ while h>0:
     min_line_length = 10  # min number of pixels making up a line(100)
     max_line_gap = 40  # max gap in pixels between connectable line segments (30)
     line_image = np.copy(img) * 0
-    lines = cv2.HoughLinesP(edges, rho, theta, threshold, np.array([]), min_line_length, max_line_gap)
+    lines = cv2.HoughLinesP(mask_image, rho, theta, threshold, np.array([]), min_line_length, max_line_gap)
     left = []
     # for x in range(0,len(lines)):
     #     for x1,y1,x2,y2 in lines[x]:
@@ -146,16 +151,12 @@ while h>0:
         slope = (pointBy-pointAy)/(pointBx-pointAx)
         normal = -1/slope
         normal = int(normal)
-        ypoop1= 500 - (normal*(pointBx + 187 - pointBx) + pointBy)
-        ypoop2 = 500-(normal*(pointBx - 187 - pointBx) + pointBy)
+        ypoop1=500 -  (normal*(pointBx + 187 - pointBx) + pointBy)
+        ypoop2 =500 - (normal*(pointBx - 187 - pointBx) + pointBy)
         print("y1 " + str(ypoop1))
         print("y2 " + str(ypoop2))
         cv2.arrowedLine(img,  (pointAx, pointAy), (pointBx, pointBy), (0, 0, 255), 2)
         cv2.line(img, (pointAx, pointAy), (pointBx, pointBy), (0, 255, 0), 2)
-        # outlining triangles because honestly what the fuck is up
-        # cv2.line(img, (pointAx - 187, ypoop1), (pointAx + 187, ypoop2), (0, 255, 0), 2)
-        # cv2.line(img, (pointAx - 187, ypoop1), (pointAx, pointAy - 40), (0, 255, 0), 2)
-        # cv2.line(img, (pointAx + 187, ypoop2), (pointAx, pointAy - 40), (0, 255, 0), 2)
 
 
 
@@ -195,6 +196,6 @@ while h>0:
 
 
 
-    h = h - 40
+    h = h - 160
 
 cv2.imwrite('picFinal.jpg', img)
